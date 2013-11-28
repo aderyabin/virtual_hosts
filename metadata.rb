@@ -1,4 +1,4 @@
-name             'Virtual Hosts'
+name             'virtual_hosts'
 maintainer       'Andrey Deryabin'
 maintainer_email 'deriabin@gmail.com'
 license          'All rights reserved'

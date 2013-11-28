@@ -5,29 +5,28 @@ Especially useful for Vagrant.
 
 ## Usage
 
-```ruby
-Vagrant::Config.run do |config|
-  chef.add_recipe "apache2"
-  chef.add_recipe "virtual_hosts"
+    Vagrant::Config.run do |config|
+      chef.add_recipe "apache2"
+      chef.add_recipe "virtual_hosts"
 
-  config.vm.provision :chef_solo do |chef|
-    chef.json = {
-      :virtual_hosts => [{
-        "web1" => {
-          "docroot"        => "/home/vagrant/web2",
-          "server_name"    => "web1.local",
-          "server_aliases" => ["*.webapp1"],
-        },
-        "web2" => {
-          "docroot"        => "/home/vagrant/web2",
-          "server_name"    => "web2.local",
-          "server_aliases" => ["*.webapp2"],
+      config.vm.provision :chef_solo do |chef|
+        chef.json = {
+          :virtual_hosts => [{
+            "web1" => {
+              "docroot"        => "/home/vagrant/web2",
+              "server_name"    => "web1.local",
+              "server_aliases" => ["*.webapp1"],
+            },
+            "web2" => {
+              "docroot"        => "/home/vagrant/web2",
+              "server_name"    => "web2.local",
+              "server_aliases" => ["*.webapp2"],
+            }
+          }]
         }
-      }]
-    }
-  end
-end
-```
+      end
+    end
+
 
 ## Contributing
 
